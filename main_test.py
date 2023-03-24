@@ -7,7 +7,7 @@ Created on Tue Jan 25 17:23:53 2022
 
 script that read the pressure sensor, display the value in the terminal, and record them in a text file (choose the name in this script)
 
-Sensors are connected to the A0, A1 and A2 pins and commincate trough serial connexion (see MPX4250DP.ino script)
+Sensors are connected to the A0 pin
 """
 
 

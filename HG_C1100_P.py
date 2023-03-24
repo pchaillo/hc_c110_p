@@ -13,7 +13,7 @@ class SerialDuino:
 
     def __init__(self):
         # PARAM7TRES
-        self.port = '/dev/ttyACM1'
+        self.port = '/dev/ttyACM0'
         self.baud = 115200
 
         #INIT
@@ -25,21 +25,17 @@ class SerialDuino:
         ligne_raw = str(self.ser.readline())
         # print(ligne_raw)
 
-        ligne = ligne_raw.split(';')
-        # ligne = float(ligne_raw)
+        ligne_cut = ligne_raw.split("'")
+        ligne_cut2 = ligne_cut[1].split("\\")
 
-        # print(ligne) # for debug
-        if len(ligne) > 2:
-            # print(ligne[3]) # for debug
-            try:
-                self.dist = float(ligne[1])
-                # self._presB = float(ligne[2])
-                # self._presC = float(ligne[3])
-                # print(self.dist)
+        # print(ligne_cut2) # for debug
 
-            except:
-                print('Attention, lecture impossible')
-                a = 0
+        try:
+            self.dist = float(ligne_cut2[0])
+
+        except:
+            print('Attention, lecture impossible')
+            a = 0
 
     def GetDist(self):
         # print(str(self._pres)) # for debug
